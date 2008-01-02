@@ -17,6 +17,7 @@ Requires(post): rpm-helper
 BuildRequires:  libnotify-devel
 BuildRequires:  libpcre-devel
 BuildRequires:  libprelude-devel >= 0:0.9.11
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 prelude-correlator correlates events from the prelude manager.

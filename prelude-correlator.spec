@@ -3,9 +3,9 @@
 Summary:        Correlates events from the prelude manager
 Name:           prelude-correlator
 Version:        0.9.0
-Release:        %mkrel 0.8775.1
+Release:        %mkrel -c 8775 2
 Epoch:          0
-License:        GPL
+License:        GPLv2+
 Group:          System/Servers
 URL:            http://www.prelude-ids.org/
 Source0:        prelude-correlator-8775.tar.bz2

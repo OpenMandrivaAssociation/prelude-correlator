@@ -16,6 +16,7 @@ Requires(preun): rpm-helper
 Requires(post): rpm-helper
 BuildRequires:  libnotify-devel
 BuildRequires:  libpcre-devel
+BuildRequires:  lua5.1-devel
 BuildRequires:  prelude-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 

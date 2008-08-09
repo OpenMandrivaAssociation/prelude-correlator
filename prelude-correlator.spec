@@ -3,12 +3,12 @@
 Summary:        Correlates events from the prelude manager
 Name:           prelude-correlator
 Version:        0.9.0
-Release:        %mkrel -c 8775 2
+Release:        %mkrel 1
 Epoch:          0
 License:        GPLv2+
 Group:          System/Servers
 URL:            http://www.prelude-ids.org/
-Source0:        prelude-correlator-8775.tar.bz2
+Source0:        http://www.prelude-ids.com/download/releases/prelude-correlator/prelude-correlator-0.9.0-beta3.tar.gz
 Source1:        prelude-correlator.init
 Patch0:         prelude-correlator-paths.patch
 Requires:       prelude-manager
@@ -30,11 +30,10 @@ Group:          Development/C
 Development headers for prelude-correlator.
 
 %prep
-%setup -q -n %{name}
-%patch0 -p1
-%{_bindir}/find . -type d -name .svn | %{_bindir}/xargs -t %{__rm} -rf
+%setup -q -n %{name}-%{version}-beta3
+#%%patch0 -p1
 %{__perl} -pi -e 's|/usr/lib|%{_libdir}|g' configure.in
-./autogen.sh
+%{__autoconf}
 %{__perl} -pi -e 's/(^include = nessus\.rules\;$)/#\1/' plugins/pcre/ruleset/pcre.rules
 
 %build
@@ -70,14 +69,17 @@ EOF
 %defattr(0644,root,root,0755)
 %doc AUTHORS ChangeLog COPYING HACKING.README INSTALL NEWS README.urpmi
 %attr(0755,root,root) %{_bindir}/prelude-correlator
+%dir %{_datadir}/prelude-correlator
+%dir %{_datadir}/prelude-correlator/lua
+%{_datadir}/prelude-correlator/lua/lib.lua
+%attr(0755,root,root) %{_initrddir}/prelude-correlator
+%dir %{_libdir}/prelude-correlator
+%exclude %{_libdir}/prelude-correlator/lua.la
+%attr(0755,root,root) %{_libdir}/prelude-correlator/lua.so
 %dir %{_sysconfdir}/prelude-correlator
 %config(noreplace) %{_sysconfdir}/prelude-correlator/prelude-correlator.conf
-%dir %{_sysconfdir}/prelude-correlator/ruleset
-%config(noreplace) %{_sysconfdir}/prelude-correlator/ruleset/*.rules
-%dir %{_libdir}/prelude-correlator
-%exclude %{_libdir}/prelude-correlator/pcre.la
-%attr(0755,root,root) %{_libdir}/prelude-correlator/pcre.so
-%attr(0755,root,root) %{_initrddir}/prelude-correlator
+%dir %{_sysconfdir}/prelude-correlator/lua-rules
+%config(noreplace) %{_sysconfdir}/prelude-correlator/lua-rules/*.lua
 %dir %{_var}/run/prelude-correlator
 
 %files devel

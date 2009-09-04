@@ -3,7 +3,7 @@
 Summary:        Correlates events from the prelude manager
 Name:           prelude-correlator
 Version:        0.9.0
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 License:        GPLv2+
 Group:          System/Servers

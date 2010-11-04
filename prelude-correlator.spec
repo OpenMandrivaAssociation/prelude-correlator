@@ -15,7 +15,7 @@ Requires:       prelude-manager
 Requires(preun): rpm-helper
 Requires(post): rpm-helper
 Obsoletes:	%name < 0:1.0.0
-%py_requires -d
+BuildRequires:	python-setuptools
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description

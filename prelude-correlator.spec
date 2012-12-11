@@ -58,3 +58,38 @@ install -d %{buildroot}/var/run/prelude-correlator
 %python_sitelib/*
 %_sysconfdir/%name
 %_var/lib/%name
+
+
+%changelog
+* Mon Jul 16 2012 Oden Eriksson <oeriksson@mandriva.com> 0:1.0.1-1
++ Revision: 809794
+- 1.0.1
+
+* Thu Nov 04 2010 Funda Wang <fwang@mandriva.org> 0:1.0.0-2mdv2011.0
++ Revision: 593082
+- BR setuptools
+- rebuild for py2.7
+
+* Sun Apr 25 2010 Funda Wang <fwang@mandriva.org> 0:1.0.0-1mdv2010.1
++ Revision: 538676
+- 1.0.0
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+* Sun Aug 10 2008 David Walluck <walluck@mandriva.org> 0:0.9.0-1mdv2009.0
++ Revision: 270121
+- BuildRequires: lua5.1-devel
+- 0.9.0-beta3
+
+* Tue Jan 22 2008 Funda Wang <fwang@mandriva.org> 0:0.9.0-0.8775.2mdv2008.1
++ Revision: 156134
+- BR prelude-devel
+- rebuild against latest gnutls
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+

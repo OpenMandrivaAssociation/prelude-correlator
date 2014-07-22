@@ -1,0 +1,12 @@
+[Unit]
+Description=Correlator for Hybrid Network Intrusion Detection System
+After=syslog.target network.target
+
+[Service]
+Type=forking
+PIDFile=/var/run/prelude-correlator/prelude-correlator.pid
+EnvironmentFile=/etc/sysconfig/network
+ExecStart=/usr/bin/prelude-correlator --daemon --pidfile /var/run/prelude-correlator/prelude-correlator.pid
+
+[Install]
+WantedBy=multi-user.target

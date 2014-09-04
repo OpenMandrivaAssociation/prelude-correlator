@@ -1,7 +1,7 @@
 Summary:        Correlates events from the prelude manager
 Name:           prelude-correlator
 Version:        1.0.1
-Release:        3
+Release:        5
 Epoch:          0
 License:        GPLv2+
 Group:          System/Servers
@@ -43,10 +43,13 @@ install -m0755 prelude-correlator.service %{buildroot}%{_unitdir}/prelude-correl
 install -d %{buildroot}/var/run/prelude-correlator
 
 %post
-%_post_service prelude-correlator
+%systemd_post %{name}.service
 
 %preun
-%_preun_service prelude-correlator
+%systemd_preun %{name}.service
+
+%postun
+%systemd_postun_with_restart %{name}.service
 
 %files
 %doc AUTHORS ChangeLog COPYING HACKING.README NEWS README.urpmi

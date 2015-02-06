@@ -1,7 +1,7 @@
 Summary:        Correlates events from the prelude manager
 Name:           prelude-correlator
 Version:        1.0.1
-Release:        5
+Release:        6
 Epoch:          0
 License:        GPLv2+
 Group:          System/Servers

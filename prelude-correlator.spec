@@ -5,7 +5,7 @@ Release:        6
 Epoch:          0
 License:        GPLv2+
 Group:          System/Servers
-URL:            http://www.prelude-ids.org/
+URL:            https://www.prelude-ids.org/
 Source0:        http://www.prelude-ids.com/download/releases/prelude-correlator/%{name}-%{version}.tar.gz
 Source1:        prelude-correlator.service
 Buildarch:	noarch
